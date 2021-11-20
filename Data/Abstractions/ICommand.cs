@@ -1,4 +1,6 @@
-$HEADER$namespace $NAMESPACE$
+namespace QuizBot.Data.Abstractions
 {
-  public interface $INTERFACE$ {$END$}
+    public interface ICommand
+    {
+    }
 }

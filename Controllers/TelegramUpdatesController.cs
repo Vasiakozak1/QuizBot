@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using QuizBot.Models;
 
 namespace QuizBot.Controllers
@@ -12,10 +8,15 @@ namespace QuizBot.Controllers
     [Route("/api/updates")]
     public class TelegramUpdatesController : ControllerBase
     {
+        private IMediator Mediator;
+        
+        public TelegramUpdatesController(IMediator mediator)
+        {
+            Mediator = mediator;
+        }
         [HttpPost]
         public IActionResult PostUpdates([FromBody] TelegramUpdatesModel model)
         {
-
             return Ok();
         }
     }
