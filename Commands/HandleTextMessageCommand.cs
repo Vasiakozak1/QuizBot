@@ -1,19 +1,20 @@
+using MediatR;
 using QuizBot.Data.Abstractions;
 using QuizBot.Models;
 
 namespace QuizBot.Commands
 {
-    public class AddPollCommand : ICommand
+    public class HandleTextMessageCommand: ICommand
     {
         public SenderModel Sender { get; }
-        public PollModel Poll { get; }
         public ChatModel Chat { get; }
+        public string Text { get; }
         
-        public AddPollCommand(SenderModel sender, PollModel poll, ChatModel chat)
+        public HandleTextMessageCommand(SenderModel sender, ChatModel chat, string text)
         {
             Sender = sender;
-            Poll = poll;
             Chat = chat;
+            Text = text;
         }
     }
 }

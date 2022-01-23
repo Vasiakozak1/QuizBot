@@ -1,6 +1,6 @@
 namespace QuizBot.Models
 {
-    public partial class TelegramUpdatesModel: IUpdate
+    public class TelegramUpdatesModel: IClientCommand
     {
         public int MessageId { get; set; }
         

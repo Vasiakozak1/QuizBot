@@ -12,6 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using QuizBot.Data.Models;
+using QuizBot.Data.Repository;
+using QuizBot.Services;
 
 namespace QuizBot
 {
@@ -30,6 +33,9 @@ namespace QuizBot
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "QuizBot", Version = "v1"}); });
             services.AddMediatR(typeof(Program).Assembly);
+            services.AddSingleton<ICommandParser, TelegramUpdateParser>();
+            services.Configure<MongoDbOptions>(Configuration.GetSection(nameof(MongoDbOptions)));
+            services.AddMongoRepository<Quiz>(Quiz.CollectionName);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,11 +3,7 @@ using QuizBot.Models;
 
 namespace QuizBot.Services
 {
-    public class TelegramUpdateHandler: IUpdateHandler<TelegramUpdatesModel>
+    public class TelegramUpdateHandler
     {
-        public Task HandleAsync(TelegramUpdatesModel update)
-        {
-            
-        }
     }
 }

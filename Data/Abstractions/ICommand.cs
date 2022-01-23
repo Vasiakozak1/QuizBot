@@ -1,6 +1,8 @@
+using MediatR;
+
 namespace QuizBot.Data.Abstractions
 {
-    public interface ICommand
+    public interface ICommand: IRequest
     {
     }
 }
